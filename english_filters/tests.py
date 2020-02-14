@@ -7,27 +7,27 @@ from english_filters.templatetags.english_filters import join_or, join_and
 
 class JoinTests(TestCase):
     def test_join_or_empty_list(self):
-        self.assertEqual(u'',
+        self.assertEqual('',
                          join_or([]))
 
     def test_join_or_one_number(self):
-        self.assertEqual(u'123',
+        self.assertEqual('123',
                          join_or([123]))
 
     def test_join_or_2_numbers(self):
-        self.assertEqual(u'123 or 456',
+        self.assertEqual('123 or 456',
                          join_or([123, 456]))
 
     def test_join_or_3_numbers(self):
-        self.assertEqual(u'123, 456 or 7',
+        self.assertEqual('123, 456 or 7',
                          join_or([123, 456, 7]))
 
     def test_join_or_4_numbers(self):
-        self.assertEqual(u'123, 456, 42 or 321',
+        self.assertEqual('123, 456, 42 or 321',
                          join_or([123, 456, 42, 321]))
 
     def test_join_or_3_strings(self):
-        self.assertEqual(u'Peter, Jane or Mary',
+        self.assertEqual('Peter, Jane or Mary',
                          join_or(['Peter', 'Jane', 'Mary']))
 
     def test_join_or_escapes_when_autoescape_true(self):
@@ -39,5 +39,5 @@ class JoinTests(TestCase):
                          join_and(['<', '>'], autoescape=True))
 
     def test_join_and_3_strings(self):
-        self.assertEqual(u'Peter, Jane and Mary',
+        self.assertEqual('Peter, Jane and Mary',
                          join_and(['Peter', 'Jane', 'Mary']))
